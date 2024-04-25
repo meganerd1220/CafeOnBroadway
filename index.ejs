@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cafe On Broadway</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+  body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+  }
+  
+  .bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/cafeFront.jpg");
+    min-height: 50%;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  
+  * {box-sizing:border-box}
+  
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  .w3-center {
+    margin: 2; /* Auto margin for horizontal centering */
+    width: 100%; /* Optionally, you can adjust the width based on your design */
+  }
+  
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  </style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="/cakes.html" class="w3-button w3-block w3-black">CAKES</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#events" class="w3-button w3-block w3-black">EVENTS</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black">CONTACT US</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">Cafe on<br>Broadway</span>
+  </div>
+
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT US</span></h5>
+    <p></p>
+  
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"We care about our community. We strive to bring you products from local farmers, and merchants so everyone in our community benefits. We use products with sustainability in mind. We are tree huggers! We believe no one should go hungry and every person should be treated with respect. dignity, and love. This is our pledge to you, Siloam Springs. Thank you for supporting us and in return you will be given our very best. Our very best attitude, food, drink, and place to work, relax, or connect with friends."</i></p>
+      <p><i>Much Love,</i></p>
+      <p>Melissa and Patty</p>
+    </div>
+    <img src="/owners.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    
+  </div>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Food');" id="myLink">
+        <div class="w3-col s6 tablink">Food</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Drinks</div>
+      </a>
+    </div>
+
+    <div id="Food" class="w3-container menu w3-padding-48 w3-card">
+      <ul>
+        <h2 align="center">Salads </h2> 
+        <p align="center"> Price: $12.00 <br> Served with homemade crutons</p>
+        <% salads.forEach(function(salad) { %>
+          <h5><%= salad.name %></h5>
+          <p class="w3-text-grey"> Ingredients: <%= salad.ingredients %> </p><br>
+        <% }); %>
+        <p class="w3-text"> *All dressings are GF </p>
+        <h2 align="center">Signature Paninis </h2> 
+        <p align="center"> Price: $12.00 <br> All sandwiches come with one side <br> Sides: chips, broccoli salad, coleslaw and potato salad</p>
+        <% sp.forEach(function(sp) { %>
+          <h5><%= sp.name %></h5>
+          <p class="w3-text-grey"> Ingredients: <%= sp.ingredients %> </p><br>
+        <% }); %>
+        <h2 align="center">Classic Paninis </h2> 
+        <p align="center"> Price: $10.00 <br> </p>
+        <% cp.forEach(function(cp) { %>
+          <h5><%= cp.name %></h5>
+          <p class="w3-text-grey"> Ingredients: <%= cp.ingredients %> </p><br>
+          <% }); %>
+        <h2 align="center">Cold Sandwiches </h2> 
+        <p align="center"> Price: $10.00 <br> </p>
+        <% cs.forEach(function(cs) { %>
+          <h5><%= cs.name %></h5>
+          <p class="w3-text-grey"> Ingredients: <%= cs.ingredients %> </p><br>
+          <% }); %>
+        <p class="w3-text"> *GF bread available </p>
+        <h2 align="center">Spring/Summer Soup Menu </h2> 
+        <p align="center"> Price: Cup 12oz $4.50 <br> Bowl 16oz $5.50 <br> </p>
+        <p> Monday - Carrot Ginger</p>
+        <p>Tuesday - Chicken and Rice</p>
+        <p>Wednesday - Split Pea</p>
+        <p>Thursday - Tuscan</p>
+        <p>Friday-Sunday - Tomato Basil</p>
+        <br>
+        <h2 align="center">Build Your Own </h2> 
+        <p align="center"> Price: Pick 2 $11.00 or Pick 3 $13.00 <br> Choose from half sandwich/half salad/soup/pastry</p>
+        <br>
+        <h2 align="center">Kids Menu </h2> 
+        <p align="center"> Price: $5.00 <br> half sandwich, one side and a juice box <br> Sides: applesauce or chips</p>
+        <% km.forEach(function(km) { %>
+          <h5><%= km.name %></h5>
+          <p class="w3-text-grey"> Ingredients: <%= km.ingredients %> </p><br>
+          <% }); %>
+    </ul>
+    </div>
+
+    <div align='center' id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+        <ul>
+          <h2 align="center"> Espresso Drinks</h2>
+          <% for (let i = 0; i < esp.length; i++) { %>
+            <h5><%= esp[i].name %></h5>
+            <% if (esp[i].size_price) { %>
+              <% if (esp[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= esp[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (esp[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= esp[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (esp[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= esp[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (esp[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= esp[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (esp[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= esp[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (esp[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= esp[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (esp[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= esp[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+             <br>
+             <h2 align="center"> Coffee </h2>
+          <% for (let i = 0; i < coffee.length; i++) { %>
+            <h5><%= coffee[i].name %></h5>
+            <% if (coffee[i].size_price) { %>
+              <% if (coffee[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= coffee[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (coffee[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= coffee[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (coffee[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= coffee[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (coffee[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= coffee[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (coffee[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= coffee[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (coffee[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= coffee[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (coffee[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= coffee[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+                <br>
+          <h2 align="center"> Tea </h2>
+          <% for (let i = 0; i < tea.length; i++) { %>
+            <h5><%= tea[i].name %></h5>
+            <% if (tea[i].size_price) { %>
+              <% if (tea[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= tea[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tea[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= tea[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tea[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= tea[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tea[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= tea[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tea[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= tea[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tea[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= tea[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (tea[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= tea[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+          <br>
+          <h2 align="center"> Frozen Drinks </h2>
+          <% for (let i = 0; i < frozen.length; i++) { %>
+            <h5><%= frozen[i].name %></h5>
+            <% if (frozen[i].size_price) { %>
+              <% if (frozen[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= frozen[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (frozen[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= frozen[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (frozen[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= frozen[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (frozen[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= frozen[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (frozen[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= frozen[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (frozen[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= frozen[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (frozen[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= frozen[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+          <br>
+          <h2 align="center"> Other Drinks </h2>
+          <% for (let i = 0; i < other.length; i++) { %>
+            <h5><%= other[i].name %></h5>
+            <% if (other[i].size_price) { %>
+              <% if (other[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= other[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (other[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= other[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (other[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= other[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (other[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= other[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (other[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= other[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (other[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= other[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (other[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= other[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+          <br>
+
+          <h2 align="center"> On Tap </h2>
+          <% for (let i = 0; i < tap.length; i++) { %>
+            <h5><%= tap[i].name %></h5>
+            <% if (tap[i].size_price) { %>
+              <% if (tap[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= tap[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tap[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= tap[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tap[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= tap[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tap[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= tap[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tap[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= tap[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (tap[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= tap[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (tap[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= tap[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+          <br>
+          <h2 align="center"> Bar Drinks </h2>
+          <% for (let i = 0; i < bar.length; i++) { %>
+            <h5><%= bar[i].name %></h5>
+            <% if (bar[i].size_price) { %>
+              <% if (bar[i].size_price['12oz']) { %>
+                <p class="w3-text-grey">12oz: $<%= bar[i].size_price['12oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (bar[i].size_price['8oz']) { %>
+                <p class="w3-text-grey">8oz: $<%= bar[i].size_price['8oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (bar[i].size_price['2oz']) { %>
+                <p class="w3-text-grey">2oz: $<%= bar[i].size_price['2oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (bar[i].size_price['4oz']) { %>
+                <p class="w3-text-grey">4oz: $<%= bar[i].size_price['4oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (bar[i].size_price['16oz']) { %>
+                <p class="w3-text-grey">16oz: $<%= bar[i].size_price['16oz'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+              <% if (bar[i].size_price['12oz cans']) { %>
+                <p class="w3-text-grey">12oz Cans: $<%= bar[i].size_price['12oz cans'] %></p>
+              <% } else { %>
+                <p class="w3-text-grey"></p>
+              <% } %>
+            <% } else { %>
+              <% if (bar[i].price) { %>
+                <p class="w3-text-grey">Price: $<%= bar[i].price %></p>
+              <% } %>
+            <% } %>
+          <% } %>
+                
+     </ul>
+    </div>  
+   <!-- Slideshow container -->
+
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">1 / 6</div>
+
+    <img src="/apricotAlmondSalad.jpeg" style="width:100%">
+
+    <div class="text">Apricot Almond Salad</div>
+
+  </div>
+
+
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">2 / 6</div>
+
+    <img src="/hamAndSwiss.jpeg" style="width:100%">
+
+    <div class="text">Ham and Swiss w/ brocoli salad</div>
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">3 / 6</div>
+
+    <img src="/mediterraneanSalad.JPG" style="width:100%">
+
+    <div class="text">Mediterranean Salad</div>
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">4 / 6</div>
+
+    <img src="/pickThree.jpeg" style="width:100%">
+
+    <div class="text">Pick Three</div>
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">5 / 6</div>
+
+    <img src="/pickTwo.jpeg" style="width:100%">
+
+    <div class="text">Pick Two</div>
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <div class="numbertext">6 / 6</div>
+
+    <img src="/veggieQuiche.jpeg" style="width:100%">
+
+    <div class="text">Veggie Quiche</div>
+
+  </div>
+
+
+  <!-- Next and previous buttons -->
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+
+<br>
+
+
+<!-- The dots/circles -->
+
+<div style="text-align:center">
+
+  <span class="dot" onclick="currentSlide(1)"></span>
+
+  <span class="dot" onclick="currentSlide(2)"></span>
+
+  <span class="dot" onclick="currentSlide(3)"></span>
+
+  <span class="dot" onclick="currentSlide(4)"></span>
+
+  <span class="dot" onclick="currentSlide(5)"></span>
+
+  <span class="dot" onclick="currentSlide(6)"></span>
+
+</div>
+
+    <script> 
+
+      let slideIndex = 1;
+
+      showSlides(slideIndex);
+
+      // Next/previous controls
+
+      function plusSlides(n) {
+
+        showSlides(slideIndex += n);
+
+      }
+
+      
+
+      // Thumbnail image controls
+
+      function currentSlide(n) {
+
+        showSlides(slideIndex = n);
+
+      }
+
+      
+
+      function showSlides(n) {
+
+        let i;
+
+        let slides = document.getElementsByClassName("mySlides");
+
+        let dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {slideIndex = 1}
+
+        if (n < 1) {slideIndex = slides.length}
+
+        for (i = 0; i < slides.length; i++) {
+
+          slides[i].style.display = "none";
+
+        }
+
+        for (i = 0; i < dots.length; i++) {
+
+          dots[i].className = dots[i].className.replace(" active", "");
+
+        }
+
+        slides[slideIndex-1].style.display = "block";
+
+        dots[slideIndex-1].className += " active";
+
+      }
+
+      </script>
+
+
+
+
+
+
+
+<!-- Events Container -->
+
+<div class="w3-container" id="events" style="padding-bottom:32px;">
+
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">EVENTS</span></h5>
+
+    <p><strong>Board Game Night</strong> <br>Thursdays</br>5pm - 10pm</p> 
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- Contact/Area Container -->
+
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
+
+    <p><strong>Address</strong> <br>123 N Broadway St, Siloam Springs, AR 72761</br></p>
+
+    <p><strong>Operating hours:</strong> <br>Monday - Saturday: 7am to 7pm <br> Sunday: 9am to 7pm</p>
+
+
+
+    <img src="/cafeFront.jpg" class="w3-image" size = "20%" style="width:100%">
+
+    
+
+  </div>
+
+</div>
+
+
+
+<div class="w3-container" id="contact">
+
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">CONTACT US</span></h5>
+
+    <p>Contact us by phone: (479) 599-8374 </p>
+
+    <a href "mailto:arnettpattycafe@gmail.com"> Contact us by email:</a> arnettpattycafe@gmail.com
+
+
+
+    <!-- Social Media Icons -->
+
+    <div class="w3-row w3-padding-32">
+
+      <div class="w3-col" style="width:50%">
+
+        <a href="https://www.instagram.com/cafeonbroadway" target="_blank">
+
+          <img src="/instagramLogo.jpg" alt="Instagram" style="width:50px;height:50px;">
+
+        </a>
+
+      </div>
+
+      <div class="w3-col" style="width:50%">
+
+        <a href="https://www.facebook.com/thecafeonbroadway" target="_blank">
+
+          <img src="/facebookLogo.png" alt="Facebook" style="width:50px;height:50px;">
+
+        </a>
+
+      </div>
+
+    </div>
+
+    
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- End page content -->
+
+</div>
+
+<script>
+
+// Tabbed Menu
+
+function openMenu(evt, menuName) {
+
+  var i, x, tablinks;
+
+  x = document.getElementsByClassName("menu");
+
+  for (i = 0; i < x.length; i++) {
+
+    x[i].style.display = "none";
+
+  }
+
+  tablinks = document.getElementsByClassName("tablink");
+
+  for (i = 0; i < x.length; i++) {
+
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+
+  }
+
+  document.getElementById(menuName).style.display = "block";
+
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+
+}
+
+document.getElementById("myLink").click();
+
+</script>
+
+
+
+</body>
+
+</html>
